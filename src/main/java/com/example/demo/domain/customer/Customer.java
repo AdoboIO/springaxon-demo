@@ -1,9 +1,13 @@
 package com.example.demo.domain.customer;
 
 import com.example.demo.domain.customer.commands.CreateCustomerCommand;
+import com.example.demo.domain.customer.events.CustomerCreatedEvent;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
+import org.axonframework.eventsourcing.EventSourcingHandler;
+
+import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 
 /**
  * Created by Nox on 2/25/18.
@@ -22,5 +26,13 @@ public class Customer {
     @CommandHandler
     public Customer(CreateCustomerCommand command) {
 
+        apply(new CustomerCreatedEvent(command.getCustomerId(), command.getCustomerName()));
+    }
+
+
+    @EventSourcingHandler
+    void on(CustomerCreatedEvent event) {
+        this.customerId = event.getCustomerId();
+        this.customerName = event.getCustomerName();
     }
 }

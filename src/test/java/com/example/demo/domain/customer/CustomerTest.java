@@ -25,7 +25,7 @@ public class CustomerTest {
         fixture.givenNoPriorActivity()
                 .when(new CreateCustomerCommand("1234", "Nox"))
                 .expectSuccessfulHandlerExecution()
-                .expectEvents(new CustomerCreatedEvent());
+                .expectEvents(new CustomerCreatedEvent("1234", "Nox"));
     }
 
 }
