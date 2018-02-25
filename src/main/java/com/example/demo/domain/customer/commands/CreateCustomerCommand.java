@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 @Value
 public class CreateCustomerCommand {
 
+    @NotNull
     private final String customerId;
 
     @NotNull

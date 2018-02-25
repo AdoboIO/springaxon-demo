@@ -3,7 +3,7 @@ package com.example.demo.domain.customer;
 import com.example.demo.domain.customer.commands.CreateCustomerCommand;
 import com.example.demo.domain.customer.events.CustomerCreatedEvent;
 import org.axonframework.test.aggregate.AggregateTestFixture;
-import org.axonframework.test.saga.FixtureConfiguration;
+import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 
