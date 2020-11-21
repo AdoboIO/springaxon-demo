@@ -31,12 +31,13 @@ public class FinanceGroup {
 
     @CommandHandler
     public FinanceGroup(CreateFinanceGroupCommand command) {
-        apply(new FinanceGroupCreatedEvent(command.getFinanceGroupId()));
+        apply(new FinanceGroupCreatedEvent(command.getFinanceGroupId(), command.getFinanceDocuments()));
     }
 
     @EventSourcingHandler
     void on(FinanceGroupCreatedEvent event) {
         this.financeGroupId = event.getFinanceGroupId();
+        this.financeDocumentList = event.getFinanceDocumentList();
     }
 
 }

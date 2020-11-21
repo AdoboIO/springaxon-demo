@@ -1,6 +1,9 @@
 package com.example.demo.domain.deal.events;
 
+import com.example.demo.schemas.FinanceDocument;
 import lombok.Value;
+
+import java.util.List;
 
 /**
  * Created by Nox on 21/11/20.
@@ -8,5 +11,7 @@ import lombok.Value;
 @Value
 public class FinanceGroupCreatedEvent {
 
-    public final String financeGroupId;
+    String financeGroupId;
+
+    List<FinanceDocument> financeDocumentList;
 }

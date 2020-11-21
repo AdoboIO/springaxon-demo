@@ -5,6 +5,8 @@ import com.example.demo.domain.deal.commands.CreateDocumentCommand;
 import com.example.demo.domain.deal.commands.CreateFinanceGroupCommand;
 import com.example.demo.domain.deal.events.DealCreatedEvent;
 import com.example.demo.domain.deal.events.DocumentCreatedEvent;
+import com.example.demo.domain.deal.events.DocumentGroupCreatedEvent;
+import com.example.demo.domain.deal.events.FinanceGroupCreatedEvent;
 import com.example.demo.schemas.Amount;
 import com.example.demo.schemas.Term;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -31,7 +33,6 @@ public class InitiateDealSaga  {
     }
 
     @EventHandler
-    void on(DocumentCreatedEvent event) {
-        commandGateway.send(new CreateFinanceGroupCommand(UUID.randomUUID().toString()));
+    void on(DocumentGroupCreatedEvent event) {
     }
 }
