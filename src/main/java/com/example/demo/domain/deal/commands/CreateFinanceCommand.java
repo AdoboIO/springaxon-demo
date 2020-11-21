@@ -5,12 +5,14 @@ import lombok.Value;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * Created by Nox on 21/11/20.
+ */
 @Value
-public class AmendFinanceAmountCommand {
+public class CreateFinanceCommand {
 
     @NotNull
     String financeId;
 
     Amount amount;
-
 }

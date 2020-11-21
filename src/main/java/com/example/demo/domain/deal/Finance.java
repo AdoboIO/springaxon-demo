@@ -1,6 +1,7 @@
 package com.example.demo.domain.deal;
 
 import com.example.demo.domain.deal.commands.AmendFinanceAmountCommand;
+import com.example.demo.schemas.Amount;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
@@ -17,8 +18,7 @@ public class Finance {
     @AggregateIdentifier
     private String financeId;
 
-    private String currency;
-    private Double amount;
+    private Amount amount;
 
     @CommandHandler
     public void handle(AmendFinanceAmountCommand command) {

@@ -13,10 +13,10 @@ import javax.validation.constraints.NotNull;
 public class CreateDocumentCommand {
 
     @NotNull
-    private final String documentId;
+    String documentId;
 
-    private final Amount amount;
+    Amount amount;
 
-    private final Term term;
+    Term term;
 
 }

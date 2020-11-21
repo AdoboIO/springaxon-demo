@@ -6,6 +6,7 @@ import com.example.demo.schemas.Amount;
 import com.example.demo.schemas.Term;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
+import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.EntityId;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Profile;
 
 import javax.validation.constraints.NotNull;
 import java.lang.invoke.MethodHandles;
+import java.math.BigDecimal;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
@@ -31,17 +33,21 @@ public class Document {
     @EntityId
     private String documentId;
 
-    private Term term;
     private Amount amount;
 
-    // TODO: Change this to enum
-    //private String state; // PendingRM | approved by RM
+    private Term term;
 
     @CommandHandler
     public Document(CreateDocumentCommand command) {
-
         apply(new DocumentCreatedEvent(command.getDocumentId(), command.getAmount(),
                 command.getTerm()));
+    }
+
+    @EventSourcingHandler
+    void on(DocumentCreatedEvent event) {
+        this.documentId = event.getDocumentId();
+        this.amount = event.getAmount();
+        this.term = event.getTerm();
     }
 
 }
