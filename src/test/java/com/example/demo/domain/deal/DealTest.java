@@ -2,6 +2,7 @@ package com.example.demo.domain.deal;
 
 import com.example.demo.domain.deal.commands.CreateDealCommand;
 import com.example.demo.domain.deal.events.DealCreatedEvent;
+import com.example.demo.domain.deal.states.DealState;
 import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.Before;
@@ -21,6 +22,6 @@ public class DealTest {
         fixture.givenNoPriorActivity()
                 .when(new CreateDealCommand("12345"))
                 .expectSuccessfulHandlerExecution()
-                .expectEvents(new DealCreatedEvent("12345"));
+                .expectEvents(new DealCreatedEvent("12345", DealState.INITIATED));
     }
 }
