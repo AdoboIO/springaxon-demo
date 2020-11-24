@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
+import org.axonframework.spring.stereotype.Aggregate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
@@ -19,11 +21,12 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
  *
  * Finance Group Aggregate
  */
+@Aggregate
 @NoArgsConstructor
 public class FinanceGroup {
 
     @AggregateIdentifier
-    private String financeGroupId;
+    private UUID financeGroupId;
 
     private Amount.Currency currency;
 

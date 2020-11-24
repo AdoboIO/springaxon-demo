@@ -1,20 +1,19 @@
 package com.example.demo.domain.deal.commands;
 
-import com.example.demo.schemas.Amount;
+import com.example.demo.domain.deal.lookups.RequestType;
 import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
- * Created by Nox on 21/11/20.
+ * Created by Nox on 23/11/20.
  */
 @Value
-public class CreateFinanceCommand {
+public class CreateRequestCommand implements RequestCommand {
 
     @TargetAggregateIdentifier
-    UUID financeId;
+    UUID requestId;
 
-    Amount amount;
+    RequestType requestType;
 }

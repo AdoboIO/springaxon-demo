@@ -1,18 +1,19 @@
 package com.example.demo.domain.deal.commands;
 
-import com.example.demo.schemas.Amount;
 import lombok.Value;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+/**
+ * Created by Nox on 10/30/20
+ */
 @Value
-public class AmendFinanceAmountCommand {
+public class InitiateDealCommand implements DealCommand {
 
     @TargetAggregateIdentifier
-    UUID financeId;
-
-    Amount amount;
+    UUID dealId;
+    UUID requestId;
 
 }

@@ -9,6 +9,7 @@ import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.EntityId;
+import org.axonframework.spring.stereotype.Aggregate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Profile;
 import javax.validation.constraints.NotNull;
 import java.lang.invoke.MethodHandles;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
@@ -24,14 +26,15 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
  *
  * Aggregate
  */
+@Aggregate
 @NoArgsConstructor
 @Profile("command")
 public class Document {
 
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    @EntityId
-    private String documentId;
+    @AggregateIdentifier
+    UUID documentId;
 
     private Amount amount;
 

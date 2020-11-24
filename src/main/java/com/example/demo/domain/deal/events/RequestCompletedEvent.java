@@ -6,11 +6,10 @@ import org.axonframework.serialization.Revision;
 import java.util.UUID;
 
 /**
- * Created by Nox on 21/11/20.
+ * Created by Nox on 24/11/20.
  */
 @Value
 @Revision("1.0")
-public class ChargeCreatedEvent {
-
-    public final UUID chargeId;
+public class RequestCompletedEvent implements RequestEvent{
+    UUID requestId;
 }

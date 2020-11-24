@@ -1,4 +1,4 @@
-package com.example.demo.domain.deal.states;
+package com.example.demo.domain.deal.lookups;
 
 /**
  * Created by Nox on 21/11/20.

@@ -1,10 +1,13 @@
 package com.example.demo.domain.deal.events;
 
-import com.example.demo.domain.deal.states.DealState;
+import com.example.demo.domain.deal.lookups.DealState;
+
+import java.util.UUID;
 
 public interface DealEvent {
 
-    String getDealId();
+    UUID getDealId();
+    UUID getRequestId();
 
     DealState getDealState();
 }
