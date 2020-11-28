@@ -11,5 +11,5 @@ public enum DealSagaState {
     FIN_PROCESSING,
     CHARGE_PROCESSING,
     COMPLETING,
-    ENDED
+    ENDING
 }

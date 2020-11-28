@@ -1,6 +1,6 @@
 package com.example.demo.domain.deal.events;
 
-import com.example.demo.schemas.Term;
+import com.example.demo.schemas.Tenor;
 import lombok.Value;
 import org.axonframework.serialization.Revision;
 
@@ -13,5 +13,5 @@ public class DealDocumentTenorAmendedEvent {
 
    public final String documentId;
 
-   public final Term term;
+   public final Tenor tenor;
 }

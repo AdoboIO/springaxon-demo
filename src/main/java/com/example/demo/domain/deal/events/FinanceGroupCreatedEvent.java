@@ -13,8 +13,6 @@ import java.util.UUID;
 @Value
 @Revision("1.0")
 public class FinanceGroupCreatedEvent {
-
     UUID financeGroupId;
-
     List<FinanceDocument> financeDocumentList;
 }

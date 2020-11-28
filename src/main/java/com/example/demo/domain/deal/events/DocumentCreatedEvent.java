@@ -1,7 +1,7 @@
 package com.example.demo.domain.deal.events;
 
 import com.example.demo.schemas.Amount;
-import com.example.demo.schemas.Term;
+import com.example.demo.schemas.Tenor;
 import lombok.Value;
 import org.axonframework.serialization.Revision;
 
@@ -17,8 +17,9 @@ public class DocumentCreatedEvent {
 
     @NotNull
     UUID documentId;
+    UUID referenceId;
 
     Amount amount;
 
-    Term term;
+    Tenor tenor;
 }

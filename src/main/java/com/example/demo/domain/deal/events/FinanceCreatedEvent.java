@@ -7,12 +7,12 @@ import org.axonframework.serialization.Revision;
 import java.util.UUID;
 
 /**
- * Created by Nox on 21/11/20.
+ * Created by Nox on 25/11/20.
  */
 @Value
 @Revision("1.0")
-public class ChargeCreatedEvent {
+public class FinanceCreatedEvent {
+    UUID financeId;
+    Amount  amount;
 
-    UUID chargeId;
-    Amount amount;
 }

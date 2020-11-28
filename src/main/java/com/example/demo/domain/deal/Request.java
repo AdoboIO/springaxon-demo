@@ -1,10 +1,12 @@
 package com.example.demo.domain.deal;
 
 import com.example.demo.domain.deal.commands.CompleteRequestCommand;
+import com.example.demo.domain.deal.commands.CreateDocumentAmendRequestCommand;
 import com.example.demo.domain.deal.commands.CreateRequestCommand;
 import com.example.demo.domain.deal.events.RequestCompletedEvent;
 import com.example.demo.domain.deal.events.RequestCreatedEvent;
 import com.example.demo.domain.deal.lookups.RequestType;
+import com.example.demo.schemas.Tenor;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventhandling.EventHandler;
@@ -35,6 +37,10 @@ public class Request {
 
    private RequestType requestType;
 
+   // TODO make this a ref to the request bucket
+   private UUID documentId;
+   private Tenor tenor;
+
    @CommandHandler
    public Request(CreateRequestCommand command) {
       logger.debug("handling {}", command);
@@ -47,6 +53,10 @@ public class Request {
       apply(new RequestCompletedEvent(command.getRequestId()));
    }
 
+   @CommandHandler
+   void handle(CreateDocumentAmendRequestCommand command) {
+      logger.debug("handling {}", command);
+   }
 
    @EventSourcingHandler
    void on(RequestCreatedEvent event) {
